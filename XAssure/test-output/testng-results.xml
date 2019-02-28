@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[STEP : Navigate to URL :- http://computer-database.herokuapp.com/]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="3867" started-at="2019-02-28T04:38:37Z" finished-at="2019-02-28T04:38:41Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="3867" started-at="2019-02-28T04:38:37Z" finished-at="2019-02-28T04:38:41Z">
+      <class name="com.xassure.test.TestDriver">
+        <test-method status="PASS" signature="setUpTest()[pri:0, instance:com.xassure.test.TestDriver@2f686d1f]" name="setUpTest" is-config="true" duration-ms="3203" started-at="2019-02-28T04:38:37Z" finished-at="2019-02-28T04:38:41Z">
+          <reporter-output>
+            <line>
+              <![CDATA[STEP : Navigate to URL :- http://computer-database.herokuapp.com/]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method status="PASS" signature="testDriver()[pri:0, instance:com.xassure.test.TestDriver@2f686d1f]" name="testDriver" duration-ms="647" started-at="2019-02-28T04:38:41Z" finished-at="2019-02-28T04:38:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDriver -->
+      </class> <!-- com.xassure.test.TestDriver -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
