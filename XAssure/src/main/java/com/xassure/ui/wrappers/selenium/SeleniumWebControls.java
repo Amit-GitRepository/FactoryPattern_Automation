@@ -34,7 +34,6 @@ public class SeleniumWebControls extends BaseTest implements XAssureWebControls{
 	int timeOut, hiddenFieldTimeOut;
 	boolean flag = false;;
 	static String lastWindow;
-
 	public SeleniumWebControls(WebDriver driver, String pageName) {
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 		this.driver = driver;

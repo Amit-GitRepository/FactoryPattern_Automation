@@ -1,7 +1,7 @@
+
 package com.xassure.api.models.users;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,85 +12,124 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"page",
-	"per_page",
-	"total",
-	"total_pages",
-	"data"
+    "id",
+    "name",
+    "username",
+    "email",
+    "address",
+    "phone",
+    "website",
+    "company"
 })
 public class UsersParent {
 
-	@JsonProperty("page")
-	private Integer page;
-	@JsonProperty("per_page")
-	private Integer perPage;
-	@JsonProperty("total")
-	private Integer total;
-	@JsonProperty("total_pages")
-	private Integer totalPages;
-	@JsonProperty("data")
-	private List<Datum> data = null;
-	@JsonIgnore
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("username")
+    private String username;
+    @JsonProperty("email")
+    private String email;
+    @JsonProperty("address")
+    private Address address;
+    @JsonProperty("phone")
+    private String phone;
+    @JsonProperty("website")
+    private String website;
+    @JsonProperty("company")
+    private Company company;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("page")
-	public Integer getPage() {
-		return page;
-	}
+    @JsonProperty("id")
+    public Integer getId() {
+        return id;
+    }
 
-	@JsonProperty("page")
-	public void setPage(Integer page) {
-		this.page = page;
-	}
+    @JsonProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	@JsonProperty("per_page")
-	public Integer getPerPage() {
-		return perPage;
-	}
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
 
-	@JsonProperty("per_page")
-	public void setPerPage(Integer perPage) {
-		this.perPage = perPage;
-	}
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@JsonProperty("total")
-	public Integer getTotal() {
-		return total;
-	}
+    @JsonProperty("username")
+    public String getUsername() {
+        return username;
+    }
 
-	@JsonProperty("total")
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
+    @JsonProperty("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	@JsonProperty("total_pages")
-	public Integer getTotalPages() {
-		return totalPages;
-	}
+    @JsonProperty("email")
+    public String getEmail() {
+        return email;
+    }
 
-	@JsonProperty("total_pages")
-	public void setTotalPages(Integer totalPages) {
-		this.totalPages = totalPages;
-	}
+    @JsonProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@JsonProperty("data")
-	public List<Datum> getData() {
-		return data;
-	}
+    @JsonProperty("address")
+    public Address getAddress() {
+        return address;
+    }
 
-	@JsonProperty("data")
-	public void setData(List<Datum> data) {
-		this.data = data;
-	}
+    @JsonProperty("address")
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-	@JsonAnyGetter
-	public Map<String, Object> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
+    @JsonProperty("phone")
+    public String getPhone() {
+        return phone;
+    }
 
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		this.additionalProperties.put(name, value);
-	}
+    @JsonProperty("phone")
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @JsonProperty("website")
+    public String getWebsite() {
+        return website;
+    }
+
+    @JsonProperty("website")
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    @JsonProperty("company")
+    public Company getCompany() {
+        return company;
+    }
+
+    @JsonProperty("company")
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
 
 }

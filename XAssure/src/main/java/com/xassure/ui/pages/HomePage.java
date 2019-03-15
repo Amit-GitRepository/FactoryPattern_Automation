@@ -8,14 +8,19 @@ import org.openqa.selenium.support.FindBy;
 import com.xassure.ui.wrappers.selenium.SeleniumWebControls;
 
 public class HomePage extends SeleniumWebControls{
+	
+	WebDriver driver;
 
-	public HomePage(WebDriver driver, String pageName) {
-		super(driver, pageName);
+	public HomePage(WebDriver driver) {
+		super(driver, "HomePage");
 		
 	}
 	
-	@FindBy(id="searchbox")
-	public WebElement searchComputer_textBox;
+	@FindBy(xpath="//div[@class='cart-container']/a")
+	public WebElement cart_icon;
+	
+	@FindBy(xpath="(//a[@title='Find your program'])[1]")
+	public WebElement findYourProgram_button;
 	
 	@FindAll({
 		@FindBy(id = "searchsubmit"), 
@@ -25,9 +30,12 @@ public class HomePage extends SeleniumWebControls{
 		
 	
 	
-	public void searchComputer(String computerName) {
-		enterText(searchComputer_textBox, computerName);
-		click(searchComputer_button);
+	public void clickOnCartIcon() {
+		click(cart_icon);
+	}
+	
+	public void findYourProgram() {
+		click(findYourProgram_button);
 	}
 	
 	

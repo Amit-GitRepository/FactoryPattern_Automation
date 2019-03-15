@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Beachbody Tests Suite">
+  <test name="Regression Tests">
+    <classes>
+      <class name="com.xassure.api.tests.UsersApiTest"/>
+      <class name="com.xassure.ui.tests.TestDriver"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

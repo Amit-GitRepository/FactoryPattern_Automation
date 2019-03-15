@@ -19,6 +19,7 @@ public class BaseTest {
 
 	protected void setDriver() {
 		driver = browserProvider.getDriver(modeOfExecution).init(browserName);
+		driver.manage().window().maximize();
 		
 
 	}
