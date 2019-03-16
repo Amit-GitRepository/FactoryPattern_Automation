@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Beachbody Tests Suite">
+<suite name="Beachbody Tests Suite" parallel="classes" thread-count="2">
   <test name="Regression Tests">
     <classes>
-      <class name="com.xassure.api.tests.UsersApiTest"/>
-      <class name="com.xassure.ui.tests.TestDriver"/>
+      <class name="com.xassure.api.tests.TestBeachbodyWorkflow"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
