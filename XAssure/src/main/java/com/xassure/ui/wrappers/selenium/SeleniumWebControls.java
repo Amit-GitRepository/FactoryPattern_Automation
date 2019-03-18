@@ -53,9 +53,16 @@ public class SeleniumWebControls extends BaseTest implements XAssureWebControls{
 	public String getCurrentURL() {
 		return driver.getCurrentUrl();
 	}
+	
+	public boolean isElementDisplayed(WebElement element) {
+		if(element.isEnabled() && element.isDisplayed())
+			return true;
+		else
+			return false;
+	}
 
 	public void verifyPageTitleExact(String expectedPagetitle) {
-		if (((expectedPagetitle == "") || (expectedPagetitle == null) || (expectedPagetitle
+		if (((expectedPagetitle == "") || (expectedPagetitle == null) || (expectedPagetitle 
 				.isEmpty()))
 				&& (ConfigPropertyReader.getProperty("browser").equalsIgnoreCase("chrome"))) {
 			expectedPagetitle = getCurrentURL();
@@ -318,7 +325,7 @@ public class SeleniumWebControls extends BaseTest implements XAssureWebControls{
 		driver.navigate().to(URL);
 		logMessage("STEP : Navigate to URL :- " + URL);
 	}
-
+ 
 	public void selectDropDownValue(WebElement el, int index) {
 		try {
 			wait.waitForElementToBeVisible(el);

@@ -23,15 +23,17 @@ public class HomePage extends SeleniumWebControls{
 	public WebElement findYourProgram_button;
 	
 	@FindAll({
-		@FindBy(id = "searchsubmit"), 
-		@FindBy(xpath = "//input[@value='Filter by name']")
+		@FindBy(className = "logo-container"), 
+		@FindBy(xpath = "//div[@class='logo-container']")
 		})
-	public WebElement searchComputer_button;
-		
+	public WebElement logoBeachbody_image;
 	
+	public boolean isLogoDisplayed() {
+		return isElementDisplayed(logoBeachbody_image);
+	}
 	
 	public void clickOnCartIcon() {
-		click(cart_icon);
+		click(cart_icon); 
 	}
 	
 	public void findYourProgram() {

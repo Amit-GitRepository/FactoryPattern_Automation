@@ -27,7 +27,7 @@ public class TestBeachbodyWorkflow extends BaseTest{
 	String firstName, lastName, StreetAddress, OptionalAddress, City, State, PostalCode, Telephone;
 
 	@BeforeClass
-	public void setUpTest() {
+	public void setUpTest() { 
 		setDriver();
 		home = new HomePage(driver);
 		//Create reports directory
@@ -35,7 +35,7 @@ public class TestBeachbodyWorkflow extends BaseTest{
 
 		//Fetch test data from users API
 		UsersService users = new UsersService();
-		UsersParent userData = users.retrieveParentAccount("https://jsonplaceholder.typicode.com/users/1"); 
+		UsersParent userData = users.retrieveParentAccount(getEndpoint());
 		firstName = userData.getName();
 		lastName = userData.getUsername();
 		StreetAddress = userData.getAddress().getStreet();
@@ -55,20 +55,30 @@ public class TestBeachbodyWorkflow extends BaseTest{
 	public void openBeachbodyApplication() {
 		Reporting.getLogger().log(LogStatus.INFO, "User has navigated to beachbody website");
 		home.navigateToUrl(ConfigPropertyReader.getProperty("baseUrl"));
+		Assert.assertTrue(home.isLogoDisplayed());
+		Reporting.getLogger().log(LogStatus.PASS, "ASSERTION PASSED: User is on Beachbody application and Beachbody logo is displayed");
+	}
+
+	@Test(dependsOnMethods="openBeachbodyApplication")
+	public void chooseProgramAndAddToCart() {
 		home.findYourProgram();
 		Reporting.getLogger().log(LogStatus.INFO, "User is looking for a program");
 		productsPage = new ProductsPage(driver);
 		productsPage.clickOnAddToCart();
-		Reporting.getLogger().log(LogStatus.PASS, "User successfully added Double Profuct to Cart" + Reporting.getLogger().addScreenCapture(Reporting.createScreenshot(driver)));
+		Reporting.getLogger().log(LogStatus.PASS, "User successfully added Double Product to Cart" + Reporting.getLogger().addScreenCapture(Reporting.createScreenshot(driver)));
+
 	}
 
-	@Test(dependsOnMethods="openBeachbodyApplication")
+	@Test(dependsOnMethods="chooseProgramAndAddToCart")
 	public void enterCheckoutDetails() {
 		Reporting.getLogger().log(LogStatus.INFO, "User is entering checkoutdetails");
 		checkoutPage = new CheckoutPage(driver);
 		checkoutPage.enterEmailAdress("testUser@test.com");
 		checkoutPage.enterShippingDetails(firstName, lastName, StreetAddress, OptionalAddress, City, State, PostalCode, Telephone);
+		checkoutPage.placeOrder();
+		Assert.assertEquals(checkoutPage.getCaptchaAlertText(), "Please complete the Captcha!", "ASSERTION FAILED: Captha Alert text is not as expected");
 		Reporting.getLogger().log(LogStatus.PASS, "User has successfully entered email and shipping details" + Reporting.getLogger().addScreenCapture(Reporting.createScreenshot(driver)));
+
 	}
 
 	@Test
